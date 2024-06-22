@@ -19,6 +19,7 @@ RUN useradd -ms /bin/bash frappe \
     vim \
     nginx \
     gettext-base \
+    file \
     # weasyprint dependencies
     libpango-1.0-0 \
     libharfbuzz0b \
@@ -26,8 +27,10 @@ RUN useradd -ms /bin/bash frappe \
     libpangocairo-1.0-0 \
     # For backups
     restic \
+    gpg \
     # MariaDB
     mariadb-client \
+    less \
     # Postgres
     libpq-dev \
     postgresql-client \
@@ -75,6 +78,12 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
     # For frappe framework
     wget \
+    #for building arm64 binaries
+    libcairo2-dev \
+    libpango1.0-dev \
+    libjpeg-dev \
+    libgif-dev \
+    librsvg2-dev \
     # For psycopg2
     libpq-dev \
     # Other
